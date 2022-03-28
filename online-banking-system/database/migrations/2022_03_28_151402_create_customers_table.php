@@ -27,11 +27,8 @@ return new class extends Migration
           //  $table->foreign('card_number')->references('card_number')->on('login')->onDelete('card_number');
 
         });
-
-    
     }
     
-
     /**
      * Reverse the migrations.
      *
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coustomers');
+        Schema::dropIfExists('customers');
     }
 };
