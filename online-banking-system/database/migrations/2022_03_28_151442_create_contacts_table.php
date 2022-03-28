@@ -18,11 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('account_number');
             $table->string('contact_name');
-            $table->unsignedBigInteger('contact_customer_id');
             $table->timestamps();
             $table->foreign('customer_id')->references('customer_id')->on('customers');
             $table->foreign('account_number')->references('account_number')->on('accounts');
-            $table->foreign('contact_customer_id')->references('customer_id')->on('customers');
         });
     }
 
