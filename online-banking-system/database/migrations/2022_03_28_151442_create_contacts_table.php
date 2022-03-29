@@ -16,14 +16,15 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id('contact_id');
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('account_number');
+            $table->string('account_number');
             $table->string('contact_name');
             $table->timestamps();
             $table->foreign('customer_id')->references('customer_id')->on('customers');
             $table->foreign('account_number')->references('account_number')->on('accounts');
+         
         });
     }
-
+  
     /**
      * Reverse the migrations.
      *

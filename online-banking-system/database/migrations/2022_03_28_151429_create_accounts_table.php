@@ -15,7 +15,7 @@ return new class extends Migration
     {
         
         Schema::create('accounts', function (Blueprint $table) {
-            $table->id('account_number');
+            $table->string('account_number', 30)->primary();
           //  $table->foreignId('customer_id')->constrained('customers');
             $table->unsignedBigInteger('customer_id');
             $table->string('type');

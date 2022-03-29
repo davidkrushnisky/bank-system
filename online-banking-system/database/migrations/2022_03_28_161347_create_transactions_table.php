@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id('transaction_id');
-            $table->unsignedBigInteger('account_number');
+            $table->string('account_number');
             $table->unsignedBigInteger('contact_id');
             $table->decimal('amount', $precision = 12, $scale = 2);
             $table->boolean('flag');

@@ -16,7 +16,8 @@ return new class extends Migration
         
         Schema::create('customers', function (Blueprint $table) {
             $table->id('customer_id');
-            $table->unsignedBigInteger('card_number');
+            $table->unsignedBigInteger('user_id');
+            $table->string('card_number');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone_number');
@@ -24,7 +25,8 @@ return new class extends Migration
             $table->string('address');
             $table->date('date_of_birth');
             $table->timestamps();
-          //  $table->foreign('card_number')->references('card_number')->on('login')->onDelete('card_number');
+
+            $table->foreign('user_id')->references('user_id')->on('logins');
 
         });
 
