@@ -29,11 +29,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('user_id')->on('logins');
 
         });
-
-    
     }
     
-
     /**
      * Reverse the migrations.
      *
@@ -41,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coustomers');
+        Schema::dropIfExists('customers');
     }
 };

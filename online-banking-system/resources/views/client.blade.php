@@ -13,28 +13,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/login_style.css" />
-    <title>Global Bank</title>
+    <title>Dashboard</title>
   </head>
 
   <body>
     <!-- TOP NAVIGATION -->
     <nav>
-      <img src="img/logo.png" alt="Logo" class="logo" />
-      <form class="login">
-        <input
-          type="text"
-          placeholder="user"
-          class="login__input login__input--user"
-        />
-        <!-- In practice, use type="password" -->
-        <input
-          type="text"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input login__input--pin"
-        />
-        <button class="login__btn">&rarr;</button>
-      </form>
+    <div>
+            <img class="pt-2"
+                src="img/bank_icon.png"
+                alt="Bankist logo"
+            />
+            <h2>Transfer Easy</h2>
+        </div>
+     
     </nav>
 
     <main class="app">
@@ -46,15 +38,13 @@
             As of <span class="date">05/03/2037</span>
           </p>
         </div>
-        <p class="balance__value">0000€</p>
+        <p class="balance__value">0000$</p>
       </div>
 
       <!-- MOVEMENTS -->
       <div class="movements">
         <div class="movements__row">
-          <div class="movements__type movements__type--deposit">2 deposit</div>
-          <div class="movements__date">3 days ago</div>
-          <div class="movements__value">4 000€</div>
+          <div class="balance__label">Past Transactions</div>
         </div>
         <div class="movements__row">
           <div class="movements__type movements__type--withdrawal">
@@ -66,7 +56,7 @@
       </div>
 
       <!-- SUMMARY -->
-      <div class="summary">
+      <!-- <div class="summary">
         <p class="summary__label">In</p>
         <p class="summary__value summary__value--in">0000€</p>
         <p class="summary__label">Out</p>
@@ -74,7 +64,7 @@
         <p class="summary__label">Interest</p>
         <p class="summary__value summary__value--interest">0000€</p>
         <button class="btn--sort">&downarrow; SORT</button>
-      </div>
+      </div> -->
 
       <!-- OPERATION: TRANSFERS -->
       <div class="operation operation--transfer">
@@ -83,7 +73,7 @@
           <input type="text" class="form__input form__input--to" />
           <input type="number" class="form__input form__input--amount" />
           <button class="form__btn form__btn--transfer">&rarr;</button>
-          <label class="form__label">Transfer to</label>
+          <label class="form__label">Transfer From - Bank Account #</label>
           <label class="form__label">Amount</label>
         </form>
       </div>

@@ -88,8 +88,8 @@
     gap: 2rem;
   
     /* NOTE This creates the fade in/out anumation */
-    opacity: 0;
-    transition: all 1s;
+    /* opacity: 0;
+    transition: all 1s; */
   }
   
   .balance {
@@ -208,7 +208,7 @@
   }
   
   .operation--transfer {
-    background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+    background-image: linear-gradient(to top left, #0368ff, #038eff);
   }
   
   .operation--loan {
