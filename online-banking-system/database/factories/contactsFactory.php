@@ -18,12 +18,15 @@ class contactsFactory extends Factory
     public function definition()
     {
         $customerIDs = DB::table('customers')->pluck('customer_id');
+        $accounts = DB::select('select * from accounts');
+        $k = array_rand($accounts);
+        $account = $accounts[$k];
         return [
            
-            
              'customer_id' =>$this->faker->randomElement($customerIDs),
-             'account_number'=>$this->faker->firstName(),
-             'contact_name'=>$this->faker->name(),
+
+             'account_number'=>$account->account_number,
+             'contact_name'=>$this->faker->randomElement(['rent','bill','mom','dad','car','ride']),
          
          
      ];
