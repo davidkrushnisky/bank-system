@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class contacts extends Model
 {
+    protected $fillable=[
+        'customer_id',
+        'account_number',
+        'contact_name',
+       
+    ];
     use HasFactory;
     public function customer()
     {
