@@ -107,9 +107,10 @@
                         <input type="text" class="form-control" name="phone" required>
                     </div>
                     <div class="form-group d-flex justify-content-center m-5">
-                        <button class="btn btn-sm btn-primary btn-flat">Submit</button>
+                        <button onclick="location.href='client.blade.php'"class="btn btn-sm btn-primary btn-flat ">Log in</button>
                     </div>
                 </form>  
+     
             </div>
             <img
             src="img/card.jpg"
@@ -240,3 +241,4 @@
     <!-- <script src="script.js"></script> -->
   </body>
 </html>
+
