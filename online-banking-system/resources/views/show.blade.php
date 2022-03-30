@@ -71,6 +71,120 @@
           <input type="submit" value="add new contact">
         </form>
    
+        
+        <h2>send or recieve money</h2>
+
+        <form action="../transaction" method="post">
+            @csrf
+        <table border="1" cellpadding="10">
+            <tr>
+      <th>choose from your accounts</th>
+      <th>choose reviever from your contacts</th>
+      <th>enter amount to transfer</th>
+            </tr>
+            <tr>
+            <select name="accounts" >
+             @foreach($accounts as $value)
+             <option>select one account</option>
+             <option value="{{$value->account_number}}">{{$value->account_number}}</option>
+            @endforeach
+            </select>
+
+            </tr>
+            <tr>
+                
+                <select name="contacts" >
+                    <option>select one contact</option>
+                 @foreach($contacts as $value)
+                 <option value="{{$value->contact_id}} ">name:{{$value->contact_name}} ,account number:{{$value->account_number}}  </option>
+                @endforeach
+                </select>
+    
+             </tr>
+             <tr>
+                 <label for="amount"></label>
+                 <input type="number" name="amount" >
+             </tr>
+    </table>
+    <button type="submit" name="submit">send money</button>
+        </form>
+
+
+       recieved transactions
+        <table border="1" cellpadding="10">
+            <tr>
+      <th>your_account_number</th>
+      <th>sender_account_number</th>
+      <th>amount</th>
+      <th>time</th>
+      <th>recieved</th>
+      <th>accept</th>
+      
+            </tr>
+           
+            @foreach($receivedmoney as $transaction)
+            @foreach($transaction as $value)
+            <tr>
+            <td>{{$value->sender_account_number}}</td>
+             <td>{{$value->account_number}}</td>
+             <td>{{$value->amount}}</td>
+             <td>{{$value->created_at}}</td>
+             <td> @if($value->flag==1) yes 
+                  @else no 
+                  @endif
+            </td> 
+            <td>
+                <form action="../transaction/{{$value->transaction_id}}" method="POST">
+                    @method('PUT') 
+                    @csrf
+                    <button name="accept" value="{{$value->transaction_id}}">accept</button>
+                </form>
+            </td>
+
+            </tr>
+             @endforeach
+        
+        @endforeach
+        
+        </table>
+
+        send transactions
+        <table border="1" cellpadding="10">
+            <tr>
+      
+      <th>your_account_number</th>
+      <th>receiver_account_number</th>
+      <th>amount</th>
+      <th>time</th>
+      <th>recieved</th>
+      <th>cancel</th>
+    
+            </tr>
+           
+            @foreach($sendmoney as $transaction)
+            @foreach($transaction as $value)
+            <tr>
+            <td>{{$value->account_number}}</td>
+            <td>{{$value->receiver_account_number}}</td>
+             <td>{{$value->amount}}</td>
+             <td>{{$value->created_at}}</td>
+             <td> @if($value->flag==1) yes 
+                  @else no 
+                  @endif
+            </td> 
+            <td>
+                <form action="../transaction/{{$value->transaction_id}}" method="POST">
+                    @method('PUT') 
+                    @csrf
+                    <button name="cancel" value="{{$value->transaction_id}}">cancel</button>
+                </form>
+            </td>
+            </tr>
+             @endforeach
+        
+        @endforeach
+        
+        </table>
    
 </body>
 </html>

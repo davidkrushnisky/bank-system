@@ -27,7 +27,7 @@ Route::resource('contact',contactController::class);
 // Route::get('/client', function () {
 //     return view('client');
 // });
-
+Route::resource('transaction',transactionController::class);
 Route::post("login", [loginController::class, "authenticate"])->name('login');
 
 Route::resource('customer', customerController::class);
