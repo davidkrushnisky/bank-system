@@ -80,15 +80,17 @@
         />
             <div class="features__feature">
                 <h5 class="features__header card-title text-center w-100">Log in to your account</H5>
-                <form action="" id="register">
+                <form action="../login" method="post" id="login">
+                  {{csrf_field()}}
                     <div class="form-group">
                         <label for="cardNumber" class='control-label'>Card Number</label>
-                        <input type="text" class="form-control" name="cardNumber" required>
+                        <input type="text" class="form-control" name="cardNumber"  required>
                     </div>
                     <div class="form-group">
                         <label for="password" class='control-label'>Password</label>
-                        <input type="text" class="form-control" name="phone" required>
+                        <input type="text" class="form-control" name="password" required>
                     </div>
+                    <p style="color:red">{{$error}}</p>
                     <div class="form-group d-flex justify-content-center m-5">
                         <button class="btn btn-sm btn-primary btn-flat">Submit</button>
                     </div>
@@ -107,7 +109,7 @@
                         <input type="text" class="form-control" name="phone" required>
                     </div>
                     <div class="form-group d-flex justify-content-center m-5">
-                        <button onclick="location.href='client.blade.php'"class="btn btn-sm btn-primary btn-flat ">Log in</button>
+                        <button onclick="location.href='client'"class="btn btn-sm btn-primary btn-flat ">Log in</button>
                     </div>
                 </form>  
      
