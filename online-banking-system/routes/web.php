@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\customerController;
+use App\Http\Controllers\contactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/client', function () {
     return view('client');
 });
+Route::resource('customer', customerController::class);
+Route::resource('contact',contactController::class);
