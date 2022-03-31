@@ -20,10 +20,7 @@ use App\Http\Controllers\transactionController;
 
 Route::get("index", [homeController::class, "index"]);
 
-Route::get('edit', function () {
-    return view('edit');
-});
-
+Route::resource('edit', customerController::class);
 
 Route::get('dashboard', function () {
     return view('dashboard');

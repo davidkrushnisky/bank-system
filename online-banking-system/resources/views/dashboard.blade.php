@@ -47,21 +47,29 @@
             <div class="grid-item">
                
             <h3 class="grid-header">Phone Number</h3>
-            <h3 class= "grid-content">{{$customer->phone_number}}<br></h3> 
-            <button class="edit">Edit</button>   
+            <h3 class= "grid-content">{{$customer->phone_number}}<br></h3>
+            <form action="/edit">
+              <button class="edit">Edit</button>  
+            </form> 
+             
             </div>
            
             <div class="grid-item">
               
             <h3 class="grid-header">Email</h3>
             <h3 class= "grid-content">{{$customer->email}}<br></h3> 
-            <button class="edit">Edit</button>   
+            <form action="../edit" method="get">
+            {{csrf_field()}}
+              <button class="edit">Edit</button>  
+            </form>  
             </div>
             <div class="grid-item">
              
             <h3 class="grid-header">Address</h3>
             <h3 class= "grid-content">{{$customer->address}}</h3> 
-            <button class="edit">Edit</button>   
+            <form action="/edit">
+              <button class="edit">Edit</button>  
+            </form>   
             </div>
            
           </div>
