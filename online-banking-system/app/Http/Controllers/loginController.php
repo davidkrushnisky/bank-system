@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\account;
+use App\Models\contacts;
+use App\Models\transaction;
+use App\Models\customer;
 use Illuminate\Support\Facades\RateLimiter;
 
 class loginController extends Controller
@@ -21,19 +25,37 @@ class loginController extends Controller
        $pwd = DB::table('logins')->where('card_number', $card)->value('password');
        
        if ($password == $pwd){
-        $id=DB::table('customers')->where('card_number', $card)->value('customer_id');
-        $fName=DB::table('customers')->where('card_number', $card)->value('first_name');
-        $lName=DB::table('customers')->where('card_number', $card)->value('last_name');
-        $doB=DB::table('customers')->where('card_number', $card)->value('date_of_birth');
-        $phone=DB::table('customers')->where('card_number', $card)->value('phone_number'); 
-        $email=DB::table('customers')->where('card_number', $card)->value('email');
-        $address=DB::table('customers')->where('card_number', $card)->value('address');
-        $account=DB::table('accounts')->where('customer_id', $id)->value('account_number');
-        $type=DB::table('accounts')->where('customer_id', $id)->value('type');
-        $balance=DB::table('accounts')->where('customer_id', $id)->value('balance'); 
 
-        return view('dashboard', compact('card', 'fName', 'lName', 'doB', 'phone', 'email', 'address', 'account', 'type', 'balance'));
+        $id=DB::table('customers')->where('card_number', $card)->value('customer_id');
+     
+        $customer=customer::where('customer_id', $id)->get()->first();
+        $accounts=account::where('customer_id', $id)->get();
+        $contacts=contacts::where('customer_id', $id)->get();
+
+        $tr=[];
+        $sendmoney=[];
+        $receivedmoney=[];
+        foreach($accounts as $account){
+            array_push($tr,$account);
         }
+        foreach($tr as $account){
+          
+        $sendTransactions=transaction::join ('contacts', 'transactions.contact_id', '=', 'contacts.contact_id')
+        ->where('transactions.account_number', $account['account_number'])
+        ->get(['transactions.*','contacts.account_number as receiver_account_number']);
+        array_push($sendmoney,$sendTransactions); 
+        }
+        
+        foreach($tr as $account){
+            $receiveTransactions=transaction::join ('contacts', 'transactions.contact_id', '=', 'contacts.contact_id')
+            ->where('contacts.account_number', $account['account_number'])
+            ->get(['transactions.*','contacts.account_number as sender_account_number']);
+            array_push($receivedmoney,$receiveTransactions); 
+        }
+     
+      
+      return view('dashboard',compact('customer','accounts','contacts','sendmoney','receivedmoney','accounts'));
+    }
         else{
             $error = 'Please verify the username and password';
             return view('index', compact('error', 'card', 'password'));

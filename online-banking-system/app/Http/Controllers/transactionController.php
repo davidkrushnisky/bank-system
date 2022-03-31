@@ -10,6 +10,9 @@ use App\Models\customer;
 use App\Models\transaction;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+
 
 class transactionController extends Controller
 {
@@ -62,8 +65,9 @@ class transactionController extends Controller
             //  dd($transaction);
             $transaction->save();
         } else
-            dd('no');
-
+          Session::flash('balance', "your balance is lower than your transfer amount");
+          return Redirect::back();
+            
         return back();
     }
 

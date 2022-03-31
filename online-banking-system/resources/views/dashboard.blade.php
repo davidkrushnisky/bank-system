@@ -31,86 +31,92 @@
         </nav>
     </header>
         <h1> My profile </h1>
-        <h2>Welcome: {{$fName}} , {{$lName}}</h2>
+        <h2>Welcome: {{$customer->first_name}} , {{$customer->last_name}}</h2>
 
         <div class="grid-container">
             <div class="grid-item">
             <h3 class="grid-header">Card Number</h3>
-            <h3 class= "grid-content">{{$card}}<br></h3> 
+            <h3 class= "grid-content">{{$customer->card_number}}<br></h3> 
              
             </div>
              <div class="grid-item">
               
             <h3 class="grid-header">Date Of Birth</h3>
-            <h3 class= "grid-content">{{$doB}}<br> 
+            <h3 class= "grid-content">{{$customer->date_of_birth}}<br> 
             </div>
             <div class="grid-item">
                
             <h3 class="grid-header">Phone Number</h3>
-            <h3 class= "grid-content">{{$phone}}<br></h3> 
+            <h3 class= "grid-content">{{$customer->phone_number}}<br></h3> 
             <button class="edit">Edit</button>   
             </div>
            
             <div class="grid-item">
               
             <h3 class="grid-header">Email</h3>
-            <h3 class= "grid-content">{{$email}}<br></h3> 
+            <h3 class= "grid-content">{{$customer->email}}<br></h3> 
             <button class="edit">Edit</button>   
             </div>
             <div class="grid-item">
              
             <h3 class="grid-header">Address</h3>
-            <h3 class= "grid-content">{{$address}}</h3> 
+            <h3 class= "grid-content">{{$customer->address}}</h3> 
             <button class="edit">Edit</button>   
             </div>
            
           </div>
           <h1>banking</h1>
+          @foreach($accounts as $account)
           <div class="grid-container">
             <div class="grid-item1">
             <h3 class="grid-header1">Account Number</h3>
-            <h4 class= "grid-content1">{{$account}}<br></h4> 
+            <h4 class= "grid-content1">{{$account->account_number}}<br></h4> 
             </div>
             <div class="grid-item1">
                 <h3 class="grid-header1">Type</h3>
-                <h4 class= "grid-content1">{{$type}}<br></h4> 
+                <h4 class= "grid-content1">{{$account->type}}<br></h4> 
                 </div>
                 <div class="grid-item1">
                     <h3 class="grid-header1">Balance </h3>
-                    <h4 class= "grid-content1">{{$balance}}</h4>
+                    <h4 class= "grid-content1">{{$account->balance}}</h4>
                     </div>
-
+             
           </div>
+          @endforeach
 
-          <h1>Activity</h1>
+        <h1>My Contact List</h1>
           <div class="table">
            <table>
                <thead>
                <tr>
-                   <th>Date</th>
-                   <th>Deposits</th>
-                   <th>Withdrawals</th>
-                   <th>Balance</th>
+                   <th>Name</th>
+                   <th>Account Number</th>
                </tr>
             </thead>
-            <tbody>
-               <tr>
-                <td>2022/03/30</td>
-                <td></td>
-                <td>$500</td>
-                <td>$500</td>
-               </tr>
-               <tr>
-                <td>2022/03/28</td>
-                <td>$1000</td>
-                <td></td>
-                <td>$1000</td>
-               </tr>
-            </tbody>
-           </table>
-          </div>
 
-          <h1>My Contact List</h1>
+            @if(isset($contacts)) 
+            <tbody>
+              @foreach($contacts as $value)
+               <tr>
+                <td>{{$value->contact_name}}</td>
+                <td>{{$value->account_number}}</td>
+               </tr>
+               @endforeach
+            </tbody>
+            @endif 
+           </table>
+          
+          <div class="grid-item1" style="margin-left: 30px">
+          <form action="../contact/create" method="get">
+            <input type="hidden"  name="customer_id" value="{{$value->customer_id}}" invisible>
+  
+            <input type="submit" class="edit" value="add new contact">
+          </form>
+          </div>
+        </div> 
+<br><br>
+
+          <h1> Receive transactions</h1>
           <div class="table">
               <form method="Post" id="my_form"></form>
             <table>
@@ -136,7 +142,7 @@
             </table>
            </div>
 
-           <h1>Money Receive</h1>
+           <h1>Money Send transactions</h1>
 
            <div class="table">
             <form method="Post" id="my_form"></form>
