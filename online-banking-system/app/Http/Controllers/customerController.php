@@ -7,6 +7,7 @@ use App\Models\contacts;
 use App\Models\transaction;
 use Illuminate\Http\Request;
 use App\Models\customer;
+use Illuminate\Support\Facades\DB;
 class customerController extends Controller
 {
     /**
@@ -91,7 +92,11 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer=customer::where('customer_id', $id)->get()->first();
+       
+        return view('edit',compact('customer'));
+        
+    
     }
 
     /**
@@ -103,7 +108,37 @@ class customerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        if(isset($request->address)){
+            $customer=customer::where('customer_id', $id)->get()->first();
+            DB::table('customers')->where('customer_id',$id)->update([
+      
+                'address'=>$request->address,
+             
+            ]);
+            return back();
+        }
+        
+        if(isset($request->email)){
+            $customer=customer::where('customer_id', $id)->get()->first();
+            DB::table('customers')->where('customer_id',$id)->update([
+                
+                'email'=>$request->email,
+               
+            ]);
+            return back();
+        }
+        
+        if(isset($request->phone_number)){
+            $customer=customer::where('customer_id', $id)->get()->first();
+            DB::table('customers')->where('customer_id',$id)->update([
+               
+                'phone_number'=>$request->phone_number,
+               
+            ]);
+            return back();
+        }
+      
     }
 
     /**

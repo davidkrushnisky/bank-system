@@ -48,20 +48,21 @@
                
             <h3 class="grid-header">Phone Number</h3>
             <h3 class= "grid-content">{{$customer->phone_number}}<br></h3> 
-            <button class="edit">Edit</button>   
+           
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>   
             </div>
            
             <div class="grid-item">
               
             <h3 class="grid-header">Email</h3>
             <h3 class= "grid-content">{{$customer->email}}<br></h3> 
-            <button class="edit">Edit</button>   
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>     
             </div>
             <div class="grid-item">
              
             <h3 class="grid-header">Address</h3>
             <h3 class= "grid-content">{{$customer->address}}</h3> 
-            <button class="edit">Edit</button>   
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>   
             </div>
            
           </div>
