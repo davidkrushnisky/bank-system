@@ -91,7 +91,7 @@
               </div>
               <p style="color:red">{{$error}}</p>
               <div class="form-group d-flex justify-content-center m-5">
-                  <button class="btn btn-sm btn-primary btn-flat">Submit</button>
+                  <button class="btn btn-sm btn-primary btn-flat" {{$disabled}}>Submit</button>
               </div>
           </form>  
       </div>
