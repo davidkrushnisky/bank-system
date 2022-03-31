@@ -9,7 +9,7 @@ class login extends Model
 {
     protected $fillable=[
         'card_number',
-        'fusername',
+        'username',
         'password',
     ];
     use HasFactory;

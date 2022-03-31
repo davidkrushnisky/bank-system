@@ -78,7 +78,7 @@ class customerController extends Controller
          }
       
        
-       return view('dashboard',compact('customer','accounts','contacts','sendmoney','receivedmoney'));
+       return view('customer',compact('customer','accounts','contacts','sendmoney','receivedmoney'));
      
  }
  
