@@ -13,7 +13,7 @@
         <nav class="nav">
           <div>
               <img class="pt-2"
-                  src="img/bank_icon.png"
+                  src="../../img/bank_icon.png"
                   alt="Bank logo"
               />
               <h2>Transfer Easy</h2>
@@ -21,10 +21,10 @@
           
           <ul class="nav__links">
             <li class="nav__item">
-              <a class="nav__link" href="index.html">Home</a>
+              <a class="nav__link" href="../../index">Home</a>
             </li>
             <li class="nav__item">
-              <a class="nav__link nav__link--btn" href="index.html"
+              <a class="nav__link nav__link--btn" href="../../index"
                 >Log out</a>
             </li>
           </ul>
