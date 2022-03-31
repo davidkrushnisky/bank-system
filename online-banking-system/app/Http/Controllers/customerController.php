@@ -52,7 +52,7 @@ class customerController extends Controller
     public function show($id)
     {    
       
-        $customer=customer::where('customer_id', $id)->get();
+        $customer=customer::where('customer_id', $id)->get()->first();
          $accounts=account::where('customer_id', $id)->get();
          $contacts=contacts::where('customer_id', $id)->get();
  

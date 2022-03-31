@@ -48,6 +48,10 @@
     </tr>
     @endforeach
     </table>
+
+   
+    @if(isset($contacts))
+
     contacts
     <table border="1" cellpadding="10">
         <tr>
@@ -63,7 +67,7 @@
        
     </tr>
     @endforeach
-    
+    @endif
     </table>
     <form action="../contact/create" method="get">
           <input type="hidden"  name="customer_id" value="{{$value->customer_id}}" invisible>
@@ -107,6 +111,9 @@
              </tr>
     </table>
     <button type="submit" name="submit">send money</button>
+    @if (Session::has('balance'))
+   <div class="alert alert-info">{{ Session::get('balance') }}</div>
+@endif
         </form>
 
 

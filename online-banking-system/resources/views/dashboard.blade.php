@@ -116,16 +116,17 @@
         </div> 
 <br><br>
 
-          <h1> Receive transactions</h1>
+          <h1> Send Money</h1>
           <div class="table">
-              <form method="Post" id="my_form"></form>
+            <form action="transaction" method="post">
+              @csrf
             <table>
                 <thead>
                 <tr>
                     <th>Option</th>
-                    <th>Contact Name</th>
-                    <th>Account Number</th>
-                    <th>Amount</th>
+                    <th>FROM</th>
+                    <th>TO</th>
+                    <th>AMOUNT</th>
                     <th>Transfer</th>
                    
                 </tr>
@@ -133,13 +134,28 @@
              <tbody>
                 <tr>
                     <td><input type ="checkbox" name=checkbox></td>
-                 <td>Tom</td>
-                 <td>1234567</td>
-                 <td><input type="number" name="amount" form="my_form"/></td>
-                 <td><button type="button" form="my_form">Send Money</button></td>
+                 <td>
+                  <select name="accounts" >
+                    @foreach($accounts as $value)
+                    <option>select from your accounts</option>
+                    <option value="{{$value->account_number}}">{{$value->account_number}}</option>
+                   @endforeach
+                   </select>
+                 </td>
+                 <td>
+                  <select name="contacts" >
+                    <option>select from your contacts</option>
+                 @foreach($contacts as $value)
+                 <option value="{{$value->contact_id}} ">name:{{$value->contact_name}} ,account number:{{$value->account_number}}  </option>
+                @endforeach
+                </select>
+                 </td>
+                 <td><input type="number" name="amount"/></td>
+                 <td><button type="submit"  name="submit" >Send Money</button></td>
                 </tr>
              </tbody>
             </table>
+          </form>
            </div>
 
            <h1>Money Send transactions</h1>
