@@ -124,7 +124,10 @@ class transactionController extends Controller
 
 
                 return back();
-            } else return 'you have recieved this money';
+            } else {
+            Session::flash('recieve', "you have recieved this money");
+            return Redirect::back();
+            }
         }
         if ($request->cancel != null) {
             $transaction = DB::table('transactions')->where('transaction_id', $id)->get()->first();
@@ -150,11 +153,17 @@ class transactionController extends Controller
                     DB::table('transactions')->where('transaction_id', $id)->delete();
 
                     return back();
-                } else return 'your 120 min time to cancel is over';
+                } else {
+                    Session::flash('time', "your 120 min time to cancel is over");
+                    return Redirect::back();
+                    }
             }
-        } else return 'money has recieved';
+        } else 
+            Session::flash('cancel', "money has recieved");
+            return Redirect::back();
+            
 
-        return back();
+        
     }
 
 

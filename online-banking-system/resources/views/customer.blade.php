@@ -13,7 +13,7 @@
         <nav class="nav">
         <div>
             <img class="pt-2"
-                src="img/bank_icon.png"
+                src="/img/bank_icon.png"
                 alt="Bankist logo"
             />
             <h2>Transfer Easy</h2>
@@ -21,10 +21,10 @@
           
           <ul class="nav__links">
             <li class="nav__item">
-              <a class="nav__link" href="index.html">Home</a>
+              <a class="nav__link" href="../index">Home</a>
             </li>
             <li class="nav__item">
-              <a class="nav__link nav__link--btn" href="index.html"
+              <a class="nav__link nav__link--btn" href="../index"
                 >Log out</a>
             </li>
           </ul>
@@ -48,20 +48,21 @@
                
             <h3 class="grid-header">Phone Number</h3>
             <h3 class= "grid-content">{{$customer->phone_number}}<br></h3> 
-            <button class="edit">Edit</button>   
+           
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>   
             </div>
            
             <div class="grid-item">
               
             <h3 class="grid-header">Email</h3>
             <h3 class= "grid-content">{{$customer->email}}<br></h3> 
-            <button class="edit">Edit</button>   
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>     
             </div>
             <div class="grid-item">
              
             <h3 class="grid-header">Address</h3>
             <h3 class= "grid-content">{{$customer->address}}</h3> 
-            <button class="edit">Edit</button>   
+            <button class="edit"> <a href ="../customer/{{$customer->customer_id}}/edit">Edit</a></button>   
             </div>
            
           </div>
@@ -153,6 +154,9 @@
                  <td><input type="number" name="amount"/></td>
                  <td><button type="submit"  name="submit" >Send Money</button></td>
                 </tr>
+                     @if(session('balance'))
+                    <div> <h2 style="color: red">{{session('balance')}}</h2></div>
+                     @endif
              </tbody>
             </table>
           </form>
@@ -197,7 +201,9 @@
               @endforeach
         
               @endforeach
+              <div> <h2 style="color: red">{{session('recieve')}}</h2></div>
            </tbody>
+          
           </table>
          </div>
 
@@ -237,10 +243,14 @@
             </form>
                
             </tr>
+           
             @endforeach
       
             @endforeach
+            <div> <h2 style="color: red">{{session('time')}}</h2></div>
+           
          </tbody>
+              <div> <h2 style="color: red">{{session('cancel')}}</h2></div>
         </table>
        </div>
 
