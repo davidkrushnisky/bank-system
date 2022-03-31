@@ -10,7 +10,7 @@ class homeController extends Controller
         $error = "";
         $card = "";
         $password="";
-        $disabled='enabled';
+        $disabled='';
         return view('index', compact('error', 'card', 'password', 'disabled'));
     }
 }
