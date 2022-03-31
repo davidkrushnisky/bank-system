@@ -80,15 +80,15 @@
         />
             <div class="features__feature">
                 <h5 class="features__header card-title text-center w-100">Log in to your account</H5>
-                <form action="../login" method="post" id="login">
-                  {{csrf_field()}}
+                <form action="/login" method="post" id="login">
+                {{ csrf_field() }}
                     <div class="form-group">
                         <label for="cardNumber" class='control-label'>Card Number</label>
-                        <input type="text" class="form-control" name="cardNumber"  required>
+                        <input type="text" class="form-control" name="cardNumber" value="{{$card}}" required>
                     </div>
                     <div class="form-group">
                         <label for="password" class='control-label'>Password</label>
-                        <input type="text" class="form-control" name="password" required>
+                        <input type="password" class="form-control" name="password" value="{{$password}}"  required>
                     </div>
                     <p style="color:red">{{$error}}</p>
                     <div class="form-group d-flex justify-content-center m-5">

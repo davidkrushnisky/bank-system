@@ -18,7 +18,6 @@ class loginFactory extends Factory
    
     public function definition()
     {
-       
         
         return [
             'card_number'=>$this->faker->creditCardNumber('Visa', true),

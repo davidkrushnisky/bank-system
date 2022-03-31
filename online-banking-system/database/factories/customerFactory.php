@@ -30,7 +30,7 @@ class customerFactory extends Factory
           
   //  dd($user);
         return [
-               // 'card_number'=>$this->faker->creditCardNumber('Visa', true),
+               //'card_number'=>$this->faker->creditCardNumber('Visa', true),
                
                 'user_id' =>$user->user_id,
                 'card_number'=>$user->card_number,
