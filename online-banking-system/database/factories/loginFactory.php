@@ -21,7 +21,6 @@ class loginFactory extends Factory
         
         return [
             'card_number'=>$this->faker->creditCardNumber('Visa', true),
-            'username'=>$this->faker->userName(),
             'password' =>'123456',
         ];
     }

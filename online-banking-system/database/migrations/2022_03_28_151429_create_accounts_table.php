@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->string('account_number', 30)->primary();
           //  $table->foreignId('customer_id')->constrained('customers');
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_id')->unique();
             $table->string('type');
             $table->decimal('balance', $precision = 12, $scale = 2);
             $table->timestamps();

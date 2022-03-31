@@ -20,6 +20,11 @@ use App\Http\Controllers\transactionController;
 
 Route::get("index", [homeController::class, "index"]);
 
+Route::get('edit', function () {
+    return view('edit');
+});
+
+
 Route::get('dashboard', function () {
     return view('dashboard');
 });

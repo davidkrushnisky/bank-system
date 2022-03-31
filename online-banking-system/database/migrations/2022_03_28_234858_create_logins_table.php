@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('logins', function (Blueprint $table) {
             $table->id('user_id');
-            $table->string('card_number');
-            $table->string('username');
+            $table->string('card_number')->unique();
             $table->string('password');
             $table->timestamps();
         });

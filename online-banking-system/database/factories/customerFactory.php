@@ -32,7 +32,6 @@ class customerFactory extends Factory
         return [
                //'card_number'=>$this->faker->creditCardNumber('Visa', true),
                
-                'user_id' =>$user->user_id,
                 'card_number'=>$user->card_number,
                 'first_name'=>$this->faker->firstName(),
                 'last_name'=>$this->faker->lastName(),

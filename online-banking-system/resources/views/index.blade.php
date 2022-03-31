@@ -31,7 +31,7 @@
         
         <ul class="nav__links">
           <li class="nav__item">
-            <a class="nav__link" href="#section--1">Sign Up</a>
+            <a class="nav__link" href="/edit">Sign Up</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="#section--2">Operations</a>
@@ -65,7 +65,6 @@
     <!-- Log In / Sign Up -->
     <section class="section" id="section--1">
       <div class="section__title">
-        <h2 class="section__description">Sign Up</h2>
         <h3 class="section__header">
           Start Transfering Money.
         </h3>
@@ -78,49 +77,24 @@
             alt="Computer"
             class="features__img lazy-img"
         />
-            <div class="features__feature">
-                <h5 class="features__header card-title text-center w-100">Log in to your account</H5>
-                <form action="/login" method="post" id="login">
-                {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="cardNumber" class='control-label'>Card Number</label>
-                        <input type="text" class="form-control" name="cardNumber" value="{{$card}}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class='control-label'>Password</label>
-                        <input type="password" class="form-control" name="password" value="{{$password}}"  required>
-                    </div>
-                    <p style="color:red">{{$error}}</p>
-                    <div class="form-group d-flex justify-content-center m-5">
-                        <button class="btn btn-sm btn-primary btn-flat">Submit</button>
-                    </div>
-                </form>  
-            </div>
-
-            <div class="features__feature">
-                <h5 class="features__header card-title text-center w-100">If you do not have an account, register today with your Debit Card!</H5>
-                <form action="" id="register">
-                    <div class="form-group">
-                        <label for="cardNumber" class='control-label'>Card Number</label>
-                        <input type="text" class="form-control" name="cardNumber" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class='control-label'>Phone Number</label>
-                        <input type="text" class="form-control" name="phone" required>
-                    </div>
-                    <div class="form-group d-flex justify-content-center m-5">
-                        <button onclick="location.href='client'"class="btn btn-sm btn-primary btn-flat ">Log in</button>
-                    </div>
-                </form>  
-     
-            </div>
-            <img
-            src="img/card.jpg"
-          data-src="img/card.jpg"
-          alt="Credit card"
-          class="features__img lazy-img"
-        />
-        </div>
+        <div class="features__feature">
+          <h5 class="features__header card-title text-center w-100">Log in to your account</H5>
+          <form action="/login" method="post" id="login">
+          {{ csrf_field() }}
+              <div class="form-group">
+                  <label for="cardNumber" class='control-label'>Card Number</label>
+                  <input type="text" class="form-control" name="cardNumber" value="{{$card}}" required>
+              </div>
+              <div class="form-group">
+                  <label for="password" class='control-label'>Password</label>
+                  <input type="password" class="form-control" name="password" value="{{$password}}"  required>
+              </div>
+              <p style="color:red">{{$error}}</p>
+              <div class="form-group d-flex justify-content-center m-5">
+                  <button class="btn btn-sm btn-primary btn-flat">Submit</button>
+              </div>
+          </form>  
+      </div>
     </section>
 
     <!-- Operations -->
@@ -174,46 +148,7 @@
           </div>
         </div>
 
-        <!-- <div class="slide">
-          <div class="testimonial">
-            <h5 class="testimonial__header">
-              The last step to becoming a complete minimalist
-            </h5>
-            <blockquote class="testimonial__text">
-              Quisquam itaque deserunt ullam, quia ea repellendus provident,
-              ducimus neque ipsam modi voluptatibus doloremque, corrupti
-              laborum. Incidunt numquam perferendis veritatis neque repellendus.
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-              deserunt exercitationem deleniti.
-            </blockquote>
-            <address class="testimonial__author">
-              <img src="img/user-2.jpg" alt="" class="testimonial__photo" />
-              <h6 class="testimonial__name">Miyah Miles</h6>
-              <p class="testimonial__location">London, UK</p>
-            </address>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="testimonial">
-            <h5 class="testimonial__header">
-              Finally free from old-school banks
-            </h5>
-            <blockquote class="testimonial__text">
-              Debitis, nihil sit minus suscipit magni aperiam vel tenetur
-              incidunt commodi architecto numquam omnis nulla autem,
-              necessitatibus blanditiis modi similique quidem. Odio aliquam
-              culpa dicta beatae quod maiores ipsa minus consequatur error sunt,
-              deleniti saepe aliquid quos inventore sequi. Necessitatibus id
-              alias reiciendis, perferendis facere.
-            </blockquote>
-            <address class="testimonial__author">
-              <img src="img/user-3.jpg" alt="" class="testimonial__photo" />
-              <h6 class="testimonial__name">Francisco Gomes</h6>
-              <p class="testimonial__location">Lisbon, Portugal</p>
-            </address>
-          </div>
-        </div> -->
+      
         <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>
@@ -238,9 +173,7 @@
       </p>
     </footer>
 
-    
 
     <!-- <script src="script.js"></script> -->
   </body>
 </html>
-
