@@ -31,7 +31,7 @@
         
         <ul class="nav__links">
           <li class="nav__item">
-            <a class="nav__link" href="/edit">Sign Up</a>
+            <a class="nav__link" href="../signup">Sign Up</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="#section--2">Operations</a>
@@ -46,7 +46,7 @@
           </li>
         </ul>
       </nav>
-
+      <div> <h2 style="color: red">{{session('signup')}}</h2></div>
       <div class="header__title">
         <h1>
           <span class="highlight">Welcome</span><br />

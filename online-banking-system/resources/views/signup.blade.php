@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="css/signup_style.css"  />
+    <link rel="stylesheet" href="{{asset('/css/signup_style.css')}}"  />
 </head>
 <body>
     <div class="modal hidden">
@@ -14,7 +14,7 @@
           Open your online banking account <br />
           in just <span class="highlight">5 minutes</span>
         </h2>
-        <form class="modal__form" action="index.blade.php" method="post">
+        <form class="modal__form" action="../index" method="get">
           <label>card number</label>
           <input type="number"  name="card_number"/>
           <label>First Name</label>
@@ -32,5 +32,7 @@
           <button class="btn" >Sign up</button>
         </form>
       </div>
+     {{ Session::flash('signup', "you successfully registered we will send you log in information");}}
+      
 </body>
 </html>

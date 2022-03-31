@@ -5,6 +5,7 @@ use App\Http\Controllers\customerController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\signUpController;
 use App\Http\Controllers\transactionController;
 
 /*
@@ -34,6 +35,8 @@ Route::resource('transaction',transactionController::class);
 
 Route::post("login", [loginController::class, "authenticate"])->name('login');
 
-Route::resource('customer', customerController::class);
+
 Route::resource('contact',contactController::class);
-Route::resource('customer', customerController::class);
+
+Route::resource('signup', signUpController::class);
+
