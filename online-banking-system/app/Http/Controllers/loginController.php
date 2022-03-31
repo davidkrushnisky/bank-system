@@ -49,6 +49,8 @@ class loginController extends Controller
                 return view('index', compact('error', 'card', 'password', 'disabled'));
             }
             else {
+                $card = $input['cardNumber'];
+                $password = $input['password'];
                 $error = 'Please verify the username and password';
                 $disabled='enabled';
                 return view('index', compact('error', 'card', 'password', 'disabled'));
